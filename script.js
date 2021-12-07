@@ -1,12 +1,12 @@
 // let playerSelection = prompt('Type your choice of rock, paper or scissors.');
 
-//let playerSelection= 'Rock';
+let playerSelection = 'Rock';
 
-function playerSelection() {
+function computerPlay() {
   const rps = ['rock', 'paper', 'scissors'];
 
   //Returns a random integer from 0 to 2:
-  let random = Math.floor(math.random() * rps.length);
+  let random = Math.floor(Math.random() * rps.length);
 
   //users randomfunction above to choose and return rock, paper, or scissors
   return rps[random];
@@ -14,46 +14,21 @@ function playerSelection() {
 let computerSelection = computerPlay();
 
 function playGame(playerSelection, computerSelection) {
-  if (playerSelection == 'rock') {
-    if (computerSelection == 'scissors') {
-      return 'You Win! rock beats scissors!';
-    } else if (computerSelection == 'paper') {
-      return 'Loser! paper Beats rock';
-    } else if (comptuterSelection == 'rock') {
-      return "It's a Tie";
-    } else {
-      return 'Something Went Wrong';
-    }
-  }
-  //paper Choice
-  else if (playerSelection == 'paper') {
-    if (computerSelection == 'rock') {
-      return 'You Win! paper beats rock';
-    } else if (computerSelection == 'scissors') {
-      return 'You Lose! scissors beats paper';
-    } else if (computerSelection == 'paper') {
-      return "It's a Tie";
-    } else {
-      return 'Something Went Wrong';
-    }
-  }
-  //scissors Choice
-  else if (playerSelection == 'scissors') {
-    if (computerSelection == 'paper') {
-      return 'You win! scissors beat paper';
-    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-      return 'You Lose! rock beats scissors';
-    } else if (
-      playerSelection == 'scissors' &&
-      computerSelection == 'scissors'
-    ) {
-      return "It's a Tie";
-    } else {
-      return 'Something Went Wrong';
-    }
+  if (playerSelection === comptuterSelection) {
+    console.log("It's a tie");
+  } else if (
+    (computerSelection === 'rock' && playerSelection === 'scissors') ||
+    (computerSelection === 'scissors' && playerSelection === 'paper') ||
+    (computerSelection === 'paper' && playerSelection === 'rock')
+  ) {
+    console.log(
+      'You lose!' + computerSelection + 'beats' + playerSelection + '.'
+    );
   } else {
-    return "That's not a valid choice";
+    console.log(
+      'You win!' + playerSelection + 'beats' + computerSelection + '.'
+    );
   }
-}
 
-console.log(playGame(playerSelection(), computerSelection()));
+  playGame(playerSelection, computerSelection);
+}
