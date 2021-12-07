@@ -22,11 +22,11 @@ function playGame(playerSelection, computerSelection) {
     (computerSelection === 'paper' && playerSelection === 'rock')
   ) {
     console.log(
-      'You lose!' + computerSelection + 'beats' + playerSelection + '.'
+      'You lose! ' + computerSelection + ' beats ' + playerSelection + '.'
     );
   } else {
     console.log(
-      'You win!' + playerSelection + 'beats' + computerSelection + '.'
+      'You win! ' + playerSelection + ' beats ' + computerSelection + '.'
     );
     // console.log('You win!' + playerSelection +'beats' + comptuterSelection + '.');
   }
