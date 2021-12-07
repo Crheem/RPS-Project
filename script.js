@@ -1,6 +1,6 @@
 // let playerSelection = prompt('Type your choice of rock, paper or scissors.');
 
-let playerSelection = 'Rock';
+let playerSelection = 'rock';
 
 function computerPlay() {
   const rps = ['rock', 'paper', 'scissors'];
@@ -12,9 +12,9 @@ function computerPlay() {
   return rps[random];
 }
 let computerSelection = computerPlay();
-
+console.log(computerSelection);
 function playGame(playerSelection, computerSelection) {
-  if (playerSelection === comptuterSelection) {
+  if (playerSelection === computerSelection) {
     console.log("It's a tie");
   } else if (
     (computerSelection === 'rock' && playerSelection === 'scissors') ||
@@ -28,7 +28,8 @@ function playGame(playerSelection, computerSelection) {
     console.log(
       'You win!' + playerSelection + 'beats' + computerSelection + '.'
     );
+    // console.log('You win!' + playerSelection+'beats' +comptuterSelection + '.');
   }
-
-  playGame(playerSelection, computerSelection);
 }
+
+playGame(playerSelection, computerSelection);
