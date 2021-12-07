@@ -28,7 +28,7 @@ function playGame(playerSelection, computerSelection) {
     console.log(
       'You win!' + playerSelection + 'beats' + computerSelection + '.'
     );
-    // console.log('You win!' + playerSelection+'beats' +comptuterSelection + '.');
+    // console.log('You win!' + playerSelection +'beats' + comptuterSelection + '.');
   }
 }
 
