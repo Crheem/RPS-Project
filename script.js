@@ -1,37 +1,42 @@
-// let playerSelection = prompt('Type your choice of rock, paper or scissors.');
+const rps = ['rock', 'paper', 'scissors'];
+const buttons = document.querySelectorAll('input');
 
-let playerSelection = 'rock';
-
-function computerPlay() {
-  const rps = ['rock', 'paper', 'scissors'];
-
-  //Returns a random integer from 0 to 2:
-  let random = Math.floor(Math.random() * rps.length);
-
-  //users randomfunction above to choose and return rock, paper, or scissors
-  return rps[random];
+for (let i = 0; i < buttons.length; i++) {
+  let playerSelection = buttons[i].value;
+  buttons[i].addEventListener('click', function () {
+    playGame(playerSelection, rps[Math.floor(Math.random() * rps.length)]);
+  });
 }
-let computerSelection = computerPlay();
 
 function playGame(playerSelection, computerSelection) {
   let result;
   if (playerSelection === computerSelection) {
-    result = 'Computer chose ${computerSelection}.<br> It's a tie.'
+    result = 'Computer chose ' + computerSelection + "<br>It's a tie.";
+    document.getElementById('result').innerHTML = result;
   } else if (
     (computerSelection === 'rock' && playerSelection === 'scissors') ||
     (computerSelection === 'scissors' && playerSelection === 'paper') ||
     (computerSelection === 'paper' && playerSelection === 'rock')
   ) {
-    result = 'Computer chose ${computerSelection},<br> You lose! ${computerSelection} beats $ {playerSelection}.';
-
+    result =
+      'Computer chose ' +
+      computerSelection +
+      '.<br>You lose! ' +
+      computerSelection +
+      ' beats ' +
+      playerSelection +
+      '.';
+    document.getElementById('result').innerHTML = result;
   } else {
-    result ='Computer chose $ {computerSelcection}.<br> You win! ${playerSelection} beats $ {computerSelcection}.';
-     
-document.getElementById('result').innerHTML = result;
-
-const buttons = document.querySelectorAll('input');
-for (let i = 0; i< buttons.length; i++){
-  buttons[i].addEventListener('click', function(){
-    playGame(buttons[i].value, computerSelection);
-  });
+    result =
+      'Computer chose ' +
+      computerSelection +
+      '.' +
+      '<br>You win! ' +
+      playerSelection +
+      ' beats ' +
+      computerSelection +
+      '.';
+    return (document.getElementById('result').innerHTML = result);
+  }
 }
