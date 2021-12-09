@@ -12,24 +12,26 @@ function computerPlay() {
   return rps[random];
 }
 let computerSelection = computerPlay();
-console.log(computerSelection);
+
 function playGame(playerSelection, computerSelection) {
+  let result;
   if (playerSelection === computerSelection) {
-    console.log("It's a tie");
+    result = 'Computer chose ${computerSelection}.<br> It's a tie.'
   } else if (
     (computerSelection === 'rock' && playerSelection === 'scissors') ||
     (computerSelection === 'scissors' && playerSelection === 'paper') ||
     (computerSelection === 'paper' && playerSelection === 'rock')
   ) {
-    console.log(
-      'You lose! ' + computerSelection + ' beats ' + playerSelection + '.'
-    );
-  } else {
-    console.log(
-      'You win! ' + playerSelection + ' beats ' + computerSelection + '.'
-    );
-    // console.log('You win!' + playerSelection +'beats' + comptuterSelection + '.');
-  }
-}
+    result = 'Computer chose ${computerSelection},<br> You lose! ${computerSelection} beats $ {playerSelection}.';
 
-playGame(playerSelection, computerSelection);
+  } else {
+    result ='Computer chose $ {computerSelcection}.<br> You win! ${playerSelection} beats $ {computerSelcection}.';
+     
+document.getElementById('result').innerHTML = result;
+
+const buttons = document.querySelectorAll('input');
+for (let i = 0; i< buttons.length; i++){
+  buttons[i].addEventListener('click', function(){
+    playGame(buttons[i].value, computerSelection);
+  });
+}
